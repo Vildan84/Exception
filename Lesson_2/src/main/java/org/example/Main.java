@@ -8,8 +8,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        getFloat();
-
+//        getFloat();
+        getText();
     }
 
 
@@ -32,8 +32,34 @@ public class Main {
             System.out.println("Неверный ввод, попробуйте еще раз");
             getFloat();
         }
-
     }
 
+    /**
+     * Разработайте программу, которая выбросит Exception, когда пользователь вводит пустую строку.
+     * Пользователю должно показаться сообщение, что пустые строки вводить нельзя.
+     */
+
+    public static void ifEmptyRow(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите текст: ");
+        String text = scan.nextLine();
+        if (text.isEmpty()){
+            throw new IllegalArgumentException("Передан пустой текст, попробуйте ввод заново");
+        }
+        else {
+            System.out.println(text);
+            System.out.println("Вывод завершен!");
+            scan.close();
+        }
+    }
+
+    public static void getText(){
+        try {
+            ifEmptyRow();
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            getText();
+        }
+    }
 
 }

@@ -11,8 +11,8 @@ public class Task02 {
     public static void task02() {
         try {
             int d = 0;
-            double catchedRes1 = intArray[8] / d;
-            System.out.println("catchedRes1 = " + catchedRes1);
+//            double catchedRes1 = intArray[8] / d;
+//            System.out.println("catchedRes1 = " + catchedRes1);
         } catch (NullPointerException e) {
             System.out.println("Указатель не может указывать на null!");
         } catch (IndexOutOfBoundsException e) {
