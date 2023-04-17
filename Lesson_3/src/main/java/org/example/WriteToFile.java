@@ -13,12 +13,14 @@ public class WriteToFile {
     }
     public void write(HashMap<String, String> map) throws IOException{
         String lastname = StringToArray.toArray(map.get("ФИО"))[0];
-        FileWriter writer = new FileWriter(path + lastname + ".txt",true);
+        FileWriter writer = new FileWriter(path + lastname + ".txt", true);
         String[] items = map.values().toArray(new String[0]);
-        writer.write("\n");
+        String textToWrite = "";
+
         for (String str: items){
-            writer.write(str + " ");
+            textToWrite += str + " ";
         }
+        writer.write(textToWrite + "\n");
         writer.close();
     }
 }

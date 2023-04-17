@@ -10,9 +10,10 @@ public class CheckArray {
         this.array = arr;
     }
 
-    public HashMap<String, String> checkItems(){
+    public HashMap<String, String> check(){
         HashMap<String, String> map = new HashMap<>();
         String name = "";
+        int count = 0;
 
         if (array.length != 6){
             throw new WrongNumberException(array.length);
@@ -29,7 +30,11 @@ public class CheckArray {
                     map.put("Телефон", str);
                 }
                 else if (str.matches("[А-Яа-я]*") || str.matches("[A-Za-z]*")){
-                    name += str + " ";
+                    if (count != 3){
+                        name += str + " ";
+                        count++;
+                    }
+
                 }
             }
             map.put("ФИО", name);
